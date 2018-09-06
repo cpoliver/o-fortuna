@@ -1,9 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
+import styled from "styled-components";
+import * as R from "ramda";
 
-class App extends Component {
-  render() {
-    return <div className="App">Hello, World!</div>;
-  }
-}
+import cities from "./data";
+import Wheel from "./components/Wheel";
 
-export default App;
+const ITEMS = R.take(12, cities);
+
+const AppContainer = styled.div`
+  background: tomato;
+  bottom: 0;
+  display: flex;
+  left: 0;
+  margin: 0;
+  padding: 10rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+`;
+
+export default () => (
+  <AppContainer>
+    <Wheel items={ITEMS} />
+  </AppContainer>
+);
