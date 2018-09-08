@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const getRotateTransform = ({ totalItems, index }) => {
   const rotate = index * (360 / totalItems);
@@ -7,9 +7,23 @@ const getRotateTransform = ({ totalItems, index }) => {
   return { transform: `rotate(${rotate}deg)` };
 };
 
+const rotateWheel = keyframes`
+  keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+`;
+
 const WheelContainer = styled.div`
+  animation: ${rotateWheel} 2s infinite;
   background: black;
+  margin: 20rem;
   position: relative;
+  display: flex;
   flex: 1;
 `;
 
@@ -18,12 +32,13 @@ const WheelItem = styled.div.attrs({
 })`
   background: white;
   color: black;
-  top: 50%;
-  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0.5rem;
   padding: 0.5rem;
   position: absolute;
-  transform-origin: top left 20rem;
+  transform-origin: 20rem;
   width: 10rem;
 `;
 

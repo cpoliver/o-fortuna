@@ -5,7 +5,7 @@ import * as R from "ramda";
 import cities from "./data";
 import Wheel from "./components/Wheel";
 
-const ITEMS = R.take(12, cities);
+const ITEMS = R.take(32, cities);
 
 const AppContainer = styled.div`
   background: tomato;
@@ -13,7 +13,6 @@ const AppContainer = styled.div`
   display: flex;
   left: 0;
   margin: 0;
-  padding: 10rem;
   position: absolute;
   right: 0;
   top: 0;
